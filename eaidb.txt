@@ -1,0 +1,33 @@
+create table credentials(username varchar(50),password varchar(32)not null, primary key(username));
+insert into credentials values("ruchimali24@gmail.com","abc@12345");
+
+create table customerAddress(username varchar(50), roomNo varchar(20) not null,buidlingStreet varchar(39) not null,city varchar(39) not null,states varchar(46) not null, pincode varchar(10),foreign key(username) references credentials(username) );
+insert into customerAddress values("ruchimali24@gmail.com","30/A/TBH Building","K.B.Marg","Vikhroli","Maharahstra","400082");
+insert into customerAddress values("ruchimali24@gmail.com","20/AB Building","Kannamwar Nagar","Vikhroli","Maharahstra","400081");
+
+create table customerMembership(username varchar(50) primary key,  membership varchar(20) default "null" , dateApplied varchar(10) not null, validityExpired varchar(10) not null, foreign key(username) references credentials(username) );
+insert into customerMembership values("ruchimali24@gmail.com","Gold","25/03/2023","25/04/2023");
+insert into customerDetails values("ruchimali24@gmail.com","20/AB Building","Kannamwar Nagar","Vikhroli","Maharahstra","400081","Gold");
+
+create table orders(orderid varchar(20),username varchar(50),datePlaced varchar(10),statusDelivered varchar(20),deliveryDate varchar(10),paymentMode varchar(20),primary key(orderid));
+insert into orders values("O12","ruchimali24gmail.com","23/03/2023","no","25/03/2023","cash");
+
+create table cart(cartno varchar(20),ProductCode varchar(20) not null, ProductTitle varchar(39) not null,Quantity int not null, singleProductPrice float not null,CartProductPrice float not null);
+insert into cart values("CC32","","Happy Anniversary Mom","2",30,60);
+insert into cart values("CC32","1","Happy Birthday Mom","1",30,30);
+
+create table invoice(orderid varchar(20),cartno varchar(20),TotalPrice float not null,TaxPercen int default 12 not null, TaxMoney int not null, deliveryCharges int,offersMoneyReduced float default 0 not null,TotalAmountToPay float not null,foreign key(orderid) references orders(orderid));
+insert into invoice values("O12","CC32","90","12","10.8","99","0","199.8");
+
+insert into Products values(4,"B1","con-12-111","Congratulations","30","56","Congratulations on Baby.","Congratulations","White",15,20,"SinglePage");
+insert into Products values(5,"B1","FaDay-1-11","Happy Fathers Day","20","36","Wishing a happy Fathers Day.","Fathers Day wishes","Green",10,20,"DoublePage");
+insert into Products values(6,"V1","fri-7-1","Happy Friendship Day","10","56","Wish your friend, a happy friendship day.","Friendship Day Wishes","White,Pink",20,10,"DoublePage");
+insert into Products values(7,"B2","Than-11-1","Thank you","30","39","Thank the most important person.","Expressing Gratitude","Yellow",20,10,"DoublePage");
+insert into Products values(8,"V1","Than-12-1","Thank you","50","50","Thank the most important person.","Expressing Gratitude","White",20,10,"DoublePage");
+insert into Products values(9,"V1","wel-1-1","Welcome Back","10","20","","Welcome Back","Blue",23,10,"SinglePage");
+con-12-111
+FaDay-1-11
+fri-7-1
+Than -11-1
+Than-12-1
+wel-1-1

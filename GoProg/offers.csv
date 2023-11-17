@@ -1,0 +1,8 @@
+code,payment-type,subscription,min,money,percenta,fre-gift
+*CA200,cash,null,200,150,null,null
+*CAR237,card,null,237,100,null,null
+*SIL100,null,silver,720,190,null,null
+*GOL520,null,gold,500,220,null,null
+*B10,null,null,1630,null,10,null
+*GIGO1,null,null,1710,null,null,yes
+*GI2,null,null,2171,null,null,yes
